@@ -10,4 +10,14 @@ def permutations(name, i=0, wordsList=[]):
         permutations(words, i+1, wordsList)
     return wordsList
 
-print(permutations('ABC'))
+def checkInclusion(s1: str, s2: str) -> bool:
+    p = permutations(s1)
+    print(p)
+    l, r, lens1 = 0, len(s2), len(s1)
+    while(l<r):
+        if lens1+l<=r and s2[l:l+lens1] in p:
+            return True
+        l += 1
+    return False
+
+print(checkInclusion("ab", "lecabeehbh"))
